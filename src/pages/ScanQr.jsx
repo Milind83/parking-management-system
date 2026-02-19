@@ -46,15 +46,23 @@ function ScanQr() {
       <Toaster position="top-center" />
 
       <div className="container d-flex flex-column justify-content-center align-items-center vh-100">
-        <div className="card shadow p-4" style={{ minWidth: 350, maxWidth: 500 }}>
-                    <button className="btn mb-3 p-0 d-flex justify-content-start" onClick={() => navigate('/')}>{"<-"} Back to Home</button>
+        <div
+          className="card shadow p-4"
+          style={{ minWidth: 350, maxWidth: 500 }}
+        >
+          <button
+            className="btn mb-3 p-0 d-flex justify-content-start"
+            onClick={() => navigate("/")}
+          >
+            {"<-"} Back to Home
+          </button>
 
           <h2 className="text-center mb-4">QR Scanner</h2>
 
           <div className="d-flex gap-3 justify-content-center mb-4">
             <button
               className="btn btn-success"
-              onClick={() => handleScanPoint('Entry')}
+              onClick={() => handleScanPoint("Entry")}
               disabled={scanning}
             >
               Entry Point Scan
@@ -62,7 +70,7 @@ function ScanQr() {
 
             <button
               className="btn btn-danger"
-              onClick={() => handleScanPoint('Exit')}
+              onClick={() => handleScanPoint("Exit")}
               disabled={scanning}
             >
               Exit Point Scan
@@ -74,7 +82,7 @@ function ScanQr() {
               <Scanner
                 onScan={handleQrResult}
                 onError={(err) => console.error(err)}
-                constraints={{ facingMode: 'environment' }}
+                constraints={{ facingMode: "environment" }}
                 components={{
                   audio: true,
                   onOff: true,
@@ -82,7 +90,7 @@ function ScanQr() {
                   zoom: true,
                   finder: true,
                 }}
-                styles={{ container: { width: '100%' } }}
+                styles={{ container: { width: "100%" } }}
               />
               <div className="text-center my-3">
                 Scanning... Please show QR to camera.
@@ -94,20 +102,35 @@ function ScanQr() {
             <div className="alert alert-info mt-3">
               <h5>Scanned Data</h5>
               <ul className="mb-2">
-                <li><b>Owner Name:</b> {scannedData.ownerName}</li>
-                <li><b>Flat No:</b> {scannedData.flatNo}</li>
-                <li><b>Contact:</b> {scannedData.contact}</li>
-                <li><b>Email:</b> {scannedData.email}</li>
-                <li><b>Vehicle Type:</b> {scannedData.vehicleType}</li>
-                  <li><b>Scan Time:</b> {scannedData.scanTime}</li>
+                <li>
+                  <b>Owner Name:</b> {scannedData.ownerName}
+                </li>
+                <li>
+                  <b>Flat No:</b> {scannedData.flatNo}
+                </li>
+                <li>
+                  <b>Contact:</b> {scannedData.contact}
+                </li>
+                <li>
+                  <b>Email:</b> {scannedData.email}
+                </li>
+                <li>
+                  <b>Vehicle Type:</b> {scannedData.vehicleType}
+                </li>
+                <li>
+                  <b>Vehicle Number:</b> {scannedData.vehicleNumber}
+                </li>
+                <li>
+                  <b>Scan Time:</b> {scannedData.scanTime}
+                </li>
               </ul>
               <div>
-                <b>Scanning Point:</b>{' '}
+                <b>Scanning Point:</b>{" "}
                 <span
                   className={
-                    scannedData.scanPoint === 'Entry'
-                      ? 'text-success'
-                      : 'text-danger'
+                    scannedData.scanPoint === "Entry"
+                      ? "text-success"
+                      : "text-danger"
                   }
                 >
                   {scannedData.scanPoint}
